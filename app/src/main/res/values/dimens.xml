@@ -1,0 +1,14 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="top">1dp</dimen>
+    <dimen name="text_mascota">22dp</dimen>
+    <dimen name="corner_radius_cardview">15dp</dimen>
+    <dimen name="elevacion_actionbar">10dp</dimen>
+    <dimen name="elevacion_cardview">20dp</dimen>}
+    <dimen name="titulocardview1">18dp</dimen>
+    <dimen name="titulocardview2">16dp</dimen>
+
+
+</resources>
