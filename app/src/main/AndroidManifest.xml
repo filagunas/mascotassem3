@@ -26,7 +26,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="MainActivity" />
         </activity>
-        <activity android:name=".Top5"></activity>
+        <activity android:name=".Top5"
+            android:parentActivityName=".MainActivity"
+            ></activity>
     </application>
 
 </manifest>

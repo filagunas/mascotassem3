@@ -1,7 +1,7 @@
 <resources>
     <string name="nombre_mascota">Nombre Mascota</string>
     <string name="raza_mascota">Raza Mascota</string>
-    <string name="likes_mascota">Likes de Mascota</string>
+    <string name="likes_mascota">Likes</string>
     <string name="app_name">Mascotas</string>
     <string name="action_favorite">Favoritos</string>
     <string name="menu">Menu</string>

@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.favoritos) {
 
             Intent intent=new Intent(this, Top5.class);
-            intent.putExtra("listatop", mascotas);
+            intent.putParcelableArrayListExtra("listatop", mascotas);
             Toast.makeText(MainActivity.this,"presiono la opcion favoritos:", Toast.LENGTH_LONG).show();
 
             startActivity(intent);

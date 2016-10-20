@@ -10,54 +10,65 @@
     >
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingLeft="120dp"
+        android:orientation="vertical"
+        android:layout_margin="7dp"
+        android:padding="1dp"
+
         >
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/colorPrimary">
         <ImageView
 
             android:id="@+id/imgfoto"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:src="@drawable/p1"
+            android:layout_gravity="center_horizontal"
+            android:scaleType="centerCrop"
+
 
             />
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            >
+            <ImageButton
+                android:id="@+id/btnlikeCV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/dog_bone_50"
+
+                />
+            <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:id="@+id/tvmascotaCV"
             android:text="@string/nombre_mascota"
             android:textSize="@dimen/titulocardview1"
-            android:textAlignment="center"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/tvRazaCV"
-            android:text="@string/raza_mascota"
-            android:textSize="@dimen/titulocardview2"
+            android:textStyle="bold"
+            android:layout_gravity="center_vertical"
             android:textAlignment="center"
             />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            
-            >
-            <ImageButton
-                android:id="@+id/btnlikeCV"
-                android:layout_width="38dp"
-                android:layout_height="38dp"
-                android:background="@drawable/dog_bone_50"
-                />
             <TextView
-                android:id="@+id/tvLikesCV"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/tvLikesCV"
+               android:layout_height="wrap_content"
                 android:text="@string/likes_mascota"
+                android:textSize="26dp"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/colorAccent"
+                android:textStyle="bold"
                 />
                 <ImageView
                     android:id="@+id/imgTotalLikes"
@@ -67,10 +78,8 @@
                     />
 
         </LinearLayout>
-
-
-
-
-
     </LinearLayout>
+
+
+</LinearLayout>
 </android.support.v7.widget.CardView>
