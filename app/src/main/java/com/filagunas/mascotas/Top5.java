@@ -5,8 +5,10 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.filagunas.mascotas.adapter.MascotaAdaptador;
+import com.filagunas.mascotas.pojo.Mascota;
+
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 
 

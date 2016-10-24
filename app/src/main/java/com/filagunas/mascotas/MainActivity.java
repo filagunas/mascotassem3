@@ -1,67 +1,78 @@
 package com.filagunas.mascotas;
 
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.Toast;
+
+import com.filagunas.mascotas.adapter.MascotaAdaptador;
+import com.filagunas.mascotas.adapter.PageAdapter;
+import com.filagunas.mascotas.fragment.PerfilFragment;
+import com.filagunas.mascotas.fragment.ReciclerViewFragment;
+import com.filagunas.mascotas.pojo.Mascota;
 
 import java.util.ArrayList;
 
-import static com.filagunas.mascotas.R.id.favoritos;
-import static com.filagunas.mascotas.R.id.rvMascotas;
-import static com.filagunas.mascotas.R.styleable.View;
+import static com.filagunas.mascotas.R.id.activity_contacto;
 
 public class MainActivity extends AppCompatActivity {
 
     ArrayList<Mascota> mascotas;
-    private RecyclerView listaMascotas;
     Button top;
+    private Toolbar toolbar;
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
+    private ReciclerViewFragment rvfmascotas;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+
+        toolbar =(Toolbar) findViewById(R.id.toolbar);
+        tabLayout = (TabLayout) findViewById(R.id.tabLayout);
+        viewPager = (ViewPager) findViewById(R.id.viewPager);
+
+        setUpViewPager();
+        botoncamera();
+
+
         top =(Button) findViewById(R.id.favoritos);
-        //llamada al RecyclerView
-        listaMascotas = (RecyclerView) findViewById(rvMascotas);
-        LinearLayoutManager llm = new LinearLayoutManager(this);
-        llm.setOrientation(LinearLayoutManager.VERTICAL);
-        listaMascotas.setLayoutManager(llm);
-        inicializarListaMascotas();
 
-        inicializarAdaptador();
+        if(toolbar!= null){
+            setSupportActionBar(toolbar);
+        }
+    }
+    private ArrayList<Fragment> agregarFragments(){
+        ArrayList<Fragment> fragments =new ArrayList<>();
+        this.rvfmascotas= new ReciclerViewFragment();
+        fragments.add(this.rvfmascotas);
+        fragments.add(new PerfilFragment());
+        return fragments;
+    }
+    private void setUpViewPager(){
+        viewPager.setAdapter(new PageAdapter(getSupportFragmentManager(),agregarFragments()));
+        tabLayout.setupWithViewPager(viewPager);
+        tabLayout.getTabAt(0).setIcon(R.mipmap.home);
+        tabLayout.getTabAt(1).setIcon(R.mipmap.perfildog);
 
     }
 
-    public MascotaAdaptador adaptador;
-
-    public void inicializarAdaptador() {
-        adaptador = new MascotaAdaptador(mascotas, this);
-        listaMascotas.setAdapter(adaptador);
-    }
 
 
-    public void inicializarListaMascotas() {
-        mascotas = new ArrayList<Mascota>();
-        mascotas.add(new Mascota(R.drawable.p1, "fido", "perro", 0));
-        mascotas.add(new Mascota(R.drawable.p2, "puppy", "perro", 0));
-        mascotas.add(new Mascota(R.drawable.p3, "shira", "perro", 0));
-        mascotas.add(new Mascota(R.drawable.p4, "aquiles", "perro", 0));
-        mascotas.add(new Mascota(R.drawable.p5, "duque", "perro", 0));
-        mascotas.add(new Mascota(R.drawable.p6, "naila", "perro", 0));
-        mascotas.add(new Mascota(R.drawable.p7, "shina", "perro", 0));
-        mascotas.add(new Mascota(R.drawable.p8, "hanna", "perro", 0));
-
-
-    }
 //Carga de menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -74,21 +85,24 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
             int id = item.getItemId();
             if (id == R.id.menu) {
-
-                Toast.makeText(this,"presiono la opcion 1:", Toast.LENGTH_LONG).show();
+                Intent IContacto=new Intent(this, ContactoActivity.class);
+                Toast.makeText(this,"presiono la opcion Contactar:", Toast.LENGTH_LONG).show();
+                startActivity(IContacto);
+                return true;
                 }
-        if (id == R.id.menu1) {
+          if (id == R.id.menu1) {
+              Intent IAbout=new Intent(this, About.class);
+              Toast.makeText(this,"presiono la opcion Contactar:", Toast.LENGTH_LONG).show();
+              startActivity(IAbout);
+              return true;
 
-            Toast.makeText(this,"presiono la opcion 2:", Toast.LENGTH_LONG).show();
-        }
-        if (id == R.id.menu2) {
 
-            Toast.makeText(this,"presiono la opcion 3:", Toast.LENGTH_LONG).show();
         }
-        if (id == R.id.favoritos) {
+                   if (id == R.id.favoritos) {
 
             Intent intent=new Intent(this, Top5.class);
-            intent.putParcelableArrayListExtra("listatop", mascotas);
+
+            intent.putParcelableArrayListExtra("listatop", this.rvfmascotas.getMascotas());
             Toast.makeText(MainActivity.this,"presiono la opcion favoritos:", Toast.LENGTH_LONG).show();
 
             startActivity(intent);
@@ -101,5 +115,24 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+    public void botoncamera() {
+        FloatingActionButton camera = (FloatingActionButton) findViewById(R.id.camera);
+        camera.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Snackbar.make(v, getResources().getString(R.string.camera), Snackbar.LENGTH_LONG)
+                        .setAction(getResources().getString(R.string.camera), new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Log.i("SNACKBAR", "Click en Snackbar");
+                            }
+                        })
+                        .setActionTextColor(getResources().getColor(R.color.colorPrimary))
+                        .show();
+            }
+        });
+    }
+
 }
 

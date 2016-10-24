@@ -1,4 +1,4 @@
-package com.filagunas.mascotas;
+package com.filagunas.mascotas.pojo;
 
 
 import android.os.Parcel;

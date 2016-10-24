@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_about"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.filagunas.mascotas.About">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="@dimen/card_medida"
+        android:layout_height="wrap_content"
+        card_view:cardCornerRadius="10dp"
+        card_view:cardElevation="25dp"
+        card_view:cardBackgroundColor="@color/colordCard"
+
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/Atext1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/aabout"
+
+                android:textSize="30dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:textStyle="bold"
+
+                />
+    <ImageView
+        android:id="@+id/Aimg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/fer"
+        />
+    <TextView
+        android:id="@+id/Atext1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/anombre"
+        android:layout_below="@id/Aimg"
+        android:textSize="@dimen/text_about"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold"
+
+        />
+    <TextView
+        android:id="@+id/Atext2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_about"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold"
+        android:layout_below="@id/Atext1"
+        android:text="@string/acarrera"
+
+        />
+    <TextView
+        android:id="@+id/Atext3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/adireccion"
+        android:textSize="@dimen/text_about"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold"
+        android:layout_below="@id/Atext2"
+        />
+    <TextView
+        android:id="@+id/Atext4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_about"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold"
+        />
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+
+</RelativeLayout>

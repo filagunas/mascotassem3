@@ -20,7 +20,7 @@ public class DetalleMascota extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(true);
+       // getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(true);
         setContentView(R.layout.activity_detalle_mascota);
         Bundle parametros       =getIntent().getExtras();
         String  mascota         =parametros.getString("mascota");

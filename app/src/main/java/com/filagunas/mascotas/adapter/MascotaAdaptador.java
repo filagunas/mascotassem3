@@ -1,4 +1,4 @@
-package com.filagunas.mascotas;
+package com.filagunas.mascotas.adapter;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -11,9 +11,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
+import com.filagunas.mascotas.DetalleMascota;
+import com.filagunas.mascotas.pojo.Mascota;
+import com.filagunas.mascotas.R;
 
-import static android.app.Activity.RESULT_OK;
+import java.util.ArrayList;
 
 /**
  * Created by FERNANDOIVAN on 13/10/2016.
@@ -38,7 +40,7 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
         final Mascota mascota=mascotas.get(position);
         mascotaViewHolder.imgFoto.setImageResource(mascota.getFoto());
         mascotaViewHolder.tvMascotaCV.setText(mascota.getMascota());
-        mascotaViewHolder.tvRazaCV.setText(mascota.getRaza());
+       // mascotaViewHolder.tvRazaCV.setText(mascota.getRaza());
         mascotaViewHolder.tvLikesCV.setText(" "+mascota.getLike()+" ");
 
        //Boton del Click
@@ -90,7 +92,7 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
 
             imgFoto         =(ImageView)itemView.findViewById(R.id.imgfoto);
             tvMascotaCV     =(TextView)itemView.findViewById(R.id.tvmascotaCV);
-            tvRazaCV        =(TextView)itemView.findViewById((R.id.tvRazaCV));
+          //  tvRazaCV        =(TextView)itemView.findViewById((R.id.tvRazaCV));
             btnLikeCV       =(ImageButton) itemView.findViewById(R.id.btnlikeCV);
             this.tvLikesCV  =(TextView) itemView.findViewById(R.id.tvLikesCV);
 

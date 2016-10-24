@@ -9,6 +9,11 @@
     <dimen name="elevacion_cardview">20dp</dimen>}
     <dimen name="titulocardview1">18dp</dimen>
     <dimen name="titulocardview2">16dp</dimen>
-
+    <dimen name="titulocontato">32dp</dimen>
+    <dimen name="text_about">16dp</dimen>
+    <dimen name="card_medida">200dp</dimen>
+       <dimen name="espacio_grilla">1dp</dimen>
+    <dimen name="horizontal_margin">50dp</dimen>
+    <dimen name="margin_top">10dp</dimen>
 
 </resources>

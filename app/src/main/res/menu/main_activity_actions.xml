@@ -14,7 +14,7 @@
 
     <item
     android:id="@+id/menu"
-    android:title="@string/menu"
+    android:title="@string/menu_contacto"
     android:orderInCategory="100"
 
     android:showAsAction="never"/>
@@ -23,18 +23,10 @@
 
     <item
         android:id="@+id/menu1"
-        android:title="@string/menu"
+        android:title="@string/menu_Acerca_de"
         android:orderInCategory="100"
 
         android:showAsAction="never"/>
-    <item
-        android:id="@+id/menu2"
-        android:title="@string/menu"
-        android:orderInCategory="100"
-
-        android:showAsAction="never"/>
-
-
 
 </menu>
 

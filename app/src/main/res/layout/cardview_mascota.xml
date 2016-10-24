@@ -23,6 +23,9 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:background="@color/colorPrimary">
+
+
+
         <ImageView
 
             android:id="@+id/imgfoto"
@@ -66,7 +69,8 @@
                android:layout_height="wrap_content"
                 android:text="@string/likes_mascota"
                 android:textSize="26dp"
-                android:layout_gravity="center_vertical"
+                android:layout_gravity="right"
+
                 android:textColor="@color/colorAccent"
                 android:textStyle="bold"
                 />
