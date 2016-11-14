@@ -9,10 +9,15 @@ import android.os.Parcelable;
  */
 
 public class Mascota implements Parcelable, Comparable<Mascota>{
+    private int id;
     private String mascota;
     private String raza;
     private int foto;
     private int likes;
+
+    public Mascota() {
+
+    }
 
     @Override
     public String toString() {
@@ -109,5 +114,13 @@ public class Mascota implements Parcelable, Comparable<Mascota>{
 
         return result;
             }
-        }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+}
 

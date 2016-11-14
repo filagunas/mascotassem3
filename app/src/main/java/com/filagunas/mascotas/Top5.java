@@ -6,7 +6,10 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.filagunas.mascotas.adapter.MascotaAdaptador;
+import com.filagunas.mascotas.db.BaseDatos;
 import com.filagunas.mascotas.pojo.Mascota;
+
+
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -19,52 +22,51 @@ public class Top5 extends AppCompatActivity {
 
     private RecyclerView topMascotas;
     ArrayList<Mascota> mascotas;
-    private ArrayList<Mascota> Top5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_top5);
-        Top5=new ArrayList<Mascota>();
+
 
         topMascotas = (RecyclerView) findViewById(top5Mascotas);
         LinearLayoutManager llm = new LinearLayoutManager(this);
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         topMascotas.setLayoutManager(llm);
+
         mascotas = getIntent().getParcelableArrayListExtra("listatop");
 
-        GenerarTop();
-        inicializarAdaptador();
+        BaseDatos db= new BaseDatos(this);
+        this.mascotas=db.top5Mascota();
+
+        //GenerarTop();
+                inicializarAdaptador();
 
     }
 
     public MascotaAdaptador adaptador;
 
     public void inicializarAdaptador() {
-        adaptador = new MascotaAdaptador(Top5, this);
+        adaptador = new MascotaAdaptador(this.mascotas, this);
         topMascotas.setAdapter(adaptador);
     }
 
 
-    private void GenerarTop() {
+    /*private void GenerarTop() {
 
         ArrayList<Mascota> tempArray;
 
         tempArray= (ArrayList<Mascota>) mascotas.clone();
 
+
+        Collections.sort(tempArray);
+
         for(Mascota product:tempArray){
             System.out.println(product);     }
-        Collections.sort(tempArray);
-        for(Mascota product:tempArray){
-            System.out.println(product);
-            }
-
         int i;
         for (i=0; i<5; i++){
-            Top5.add((Mascota) tempArray.get(i));
-
 
         }
 
-    }
+    }*/
     }

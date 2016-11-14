@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.filagunas.mascotas.DetalleMascota;
+import com.filagunas.mascotas.db.ConstructorMascotas;
 import com.filagunas.mascotas.pojo.Mascota;
 import com.filagunas.mascotas.R;
 
@@ -41,20 +42,20 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
         mascotaViewHolder.imgFoto.setImageResource(mascota.getFoto());
         mascotaViewHolder.tvMascotaCV.setText(mascota.getMascota());
        // mascotaViewHolder.tvRazaCV.setText(mascota.getRaza());
-        mascotaViewHolder.tvLikesCV.setText(" "+mascota.getLike()+" ");
+        mascotaViewHolder.tvLikesCV.setText(String.valueOf(mascota.getLike())+" Likes");
 
        //Boton del Click
         mascotaViewHolder.btnLikeCV.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                mascota.incremetarlikes();
-                //Toast.makeText(activity,"likes= " +mascota.incremetarlikes(), Toast.LENGTH_SHORT).show();
-                 mascotaViewHolder.tvLikesCV.setText(" "+mascota.getLike()+" ");
+               //mascota.incremetarlikes();
+                Toast.makeText(activity,"likes= " +mascota.incremetarlikes(), Toast.LENGTH_SHORT).show();
+                // mascotaViewHolder.tvLikesCV.setText(" "+mascota.getLike()+" ");
 
-
-
-
+                ConstructorMascotas constructorMascotas =new ConstructorMascotas(activity);
+                constructorMascotas.darLikeMascota(mascota);
+                mascotaViewHolder.tvLikesCV.setText(constructorMascotas.obtenerLikesMascota(mascota) + " " + activity.getString(R.string.likes_mascota));
             }
         });
        // mascotaViewHolder.tvLikesCV.setText(mascota.getLike());
@@ -80,10 +81,11 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
     }
 
     public class MascotaViewHolder extends RecyclerView.ViewHolder {
+
         private ImageView imgFoto;
         private TextView tvMascotaCV;
         private TextView tvRazaCV;
-        private TextView tvLikesCV;
+        private  TextView tvLikesCV;
         private ImageButton btnLikeCV;
 
 
@@ -94,7 +96,7 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
             tvMascotaCV     =(TextView)itemView.findViewById(R.id.tvmascotaCV);
           //  tvRazaCV        =(TextView)itemView.findViewById((R.id.tvRazaCV));
             btnLikeCV       =(ImageButton) itemView.findViewById(R.id.btnlikeCV);
-            this.tvLikesCV  =(TextView) itemView.findViewById(R.id.tvLikesCV);
+            tvLikesCV       =(TextView) itemView.findViewById(R.id.tvLikesCV);
 
         }
     }

@@ -8,7 +8,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
@@ -17,15 +16,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.filagunas.mascotas.adapter.MascotaAdaptador;
 import com.filagunas.mascotas.adapter.PageAdapter;
-import com.filagunas.mascotas.fragment.PerfilFragment;
-import com.filagunas.mascotas.fragment.ReciclerViewFragment;
+import com.filagunas.mascotas.vista_fragment.PerfilFragment;
+import com.filagunas.mascotas.vista_fragment.ReciclerViewFragment;
 import com.filagunas.mascotas.pojo.Mascota;
 
 import java.util.ArrayList;
-
-import static com.filagunas.mascotas.R.id.activity_contacto;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -58,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
     }
     private ArrayList<Fragment> agregarFragments(){
         ArrayList<Fragment> fragments =new ArrayList<>();
+
         this.rvfmascotas= new ReciclerViewFragment();
         fragments.add(this.rvfmascotas);
         fragments.add(new PerfilFragment());
